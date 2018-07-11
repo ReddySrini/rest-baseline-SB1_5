@@ -1,4 +1,4 @@
-package rest.baseline.core.web.interceptor.advice;
+package com.mindstix.web.rest.baseline.core.web.interceptor.advice;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
-import rest.baseline.commom.model.ApiResponse;
-import rest.baseline.commom.util.RestBaselineConstants;
+import com.mindstix.web.rest.baseline.common.model.ApiResponse;
+import com.mindstix.web.rest.baseline.common.util.RestBaselineConstants;
 
 /**
  * <code>BaseControllerAdvice</code> is a base controller advice.<br>

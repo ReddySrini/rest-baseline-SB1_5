@@ -1,4 +1,4 @@
-package rest.baseline.core.web.interceptor.advice;
+package com.mindstix.web.rest.baseline.core.web.interceptor.advice;
 
 import java.lang.reflect.Method;
 import java.util.Map;
@@ -22,8 +22,8 @@ import org.springframework.http.server.ServletServerHttpResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-import rest.baseline.commom.model.ApiResponse;
-import rest.baseline.commom.util.RestBaselineConstants;
+import com.mindstix.web.rest.baseline.common.model.ApiResponse;
+import com.mindstix.web.rest.baseline.common.util.RestBaselineConstants;
 
 /**
  * 
