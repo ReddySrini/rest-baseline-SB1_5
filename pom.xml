@@ -43,7 +43,7 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.mindstixlabs.web.rest</groupId>
+			<groupId>com.mindstix.web.rest</groupId>
 			<artifactId>rest.baseline.commom</artifactId>
 			<version>${rest.baseline.commom.version}</version>
 		</dependency>
