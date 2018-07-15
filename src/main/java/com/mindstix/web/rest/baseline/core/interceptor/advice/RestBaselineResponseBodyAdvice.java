@@ -1,4 +1,4 @@
-package com.mindstix.web.rest.baseline.core.web.interceptor.advice;
+package com.mindstix.web.rest.baseline.core.interceptor.advice;
 
 import java.lang.reflect.Method;
 import java.util.Map;

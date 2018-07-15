@@ -1,4 +1,4 @@
-package com.mindstix.web.rest.baseline.core.web.interceptor;
+package com.mindstix.web.rest.baseline.core.interceptor;
 
 import java.util.Map;
 
@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestAttributes;
 
 import com.mindstix.web.rest.baseline.common.util.RestBaselineConstants;
-import com.mindstix.web.rest.baseline.core.web.interceptor.advice.RestBaselineResponseBodyAdvice;
 
 /**
  * <code>ResponseCustomErrorAttributes</code> intercepter class handles error
