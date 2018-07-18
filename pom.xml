@@ -4,12 +4,45 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mindstix.web.rest</groupId>
-	<artifactId>rest.baseline.SB1_5</artifactId>
+	<artifactId>rest-baseline.SB1_5</artifactId>
 	<version>0.0.1-RELEASE</version>
 	<packaging>jar</packaging>
 
-	<name>ReSTBaselineSB1_5</name>
-	<description>Baseline framework for ReST based application to standardize Request / Response Structure and basic error Handling</description>
+	<name>ReST Baseline For Spring Boot 1.5</name>
+	<description>Baseline framework for ReST based application to standardize Request / Response Structure and basic error Handling. This is for SPring Boot 1.5. Spring Boot 2.0 has quite a bitof Package restructure, causing incompatibility.</description>
+
+	<licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://github.com/mindstix-labs/rest-baseline-common/blob/master/LICENSE</url>
+        </license>
+    </licenses>
+    <scm>
+        <url>https://github.com/mindstix-labs/rest-baseline-common</url>
+    </scm>
+    <url>https://github.com/mindstix-labs/rest-baseline-common</url>
+    <developers>
+        <developer>
+            <id>ychawda</id>
+            <name>Yagnesh Chawda</name>
+            <email>yagnesh at mindstix.com</email>
+            <organization>Mindstix Software Labs</organization>
+            <organizationUrl>http://mindstix.com/</organizationUrl>
+            <roles>
+                <role>Project lead</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>susmitbansod</id>
+            <name>Susmit Bansod</name>
+            <email>susmit.bansod at mindstix.com</email>
+            <organization>Mindstix Software Labs</organization>
+            <organizationUrl>http://mindstix.com/</organizationUrl>
+            <roles>
+                <role>Project lead</role>
+            </roles>
+        </developer>
+    </developers>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -18,7 +51,7 @@
 		<spring.boot.version>1.5.13.RELEASE</spring.boot.version>
 		<spring.cloud.version>1.2.2.RELEASE</spring.cloud.version>
 		<aspectj.weaver.version>1.8.6</aspectj.weaver.version>
-		<rest.baseline.commom.version>0.0.1-SNAPSHOT</rest.baseline.commom.version>
+		<rest.baseline.commom.version>0.0.1-RELEASE</rest.baseline.commom.version>
 	</properties>
 
 	<dependencies>
@@ -43,11 +76,22 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.mindstix.web.rest</groupId>
-			<artifactId>rest.baseline.commom</artifactId>
-			<version>${rest.baseline.commom.version}</version>
+		     <groupId>com.mindstix.web.rest</groupId>
+		     <artifactId>rest-baseline-common</artifactId>
+		     <version>${rest.baseline.commom.version}</version>
 		</dependency>
 	</dependencies>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
 	<build>
 		<plugins>
@@ -65,6 +109,66 @@
 					<target>${java.version}</target>
 				</configuration>
 			</plugin>
+
+			
+
+			<plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.8</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <configuration>
+                    <additionalparam>-Xdoclint:none</additionalparam>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+              </executions>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+              </executions>
+            </plugin>
 		</plugins>
 	</build>
 </project>
